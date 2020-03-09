@@ -9,8 +9,10 @@ def scan(args: str) -> dict:
     :param args: Input of SKUs
     :return: A counted list
     """
+    # Split the input by comma
     sku_list = args.split(", ")
 
+    # Get element counts and convert to dict
     counted_dict = dict(Counter(sku_list))
 
     return counted_dict
