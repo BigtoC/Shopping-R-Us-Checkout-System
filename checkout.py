@@ -29,6 +29,17 @@ def main():
     print(f"Total expected: ${price}")
 
 
+def run_command(action: str):
+    if action == "help":
+        print_help()
+    elif action == "run":
+        main()
+    elif action == "end":
+        sys.exit("The checkout program has been ended.")
+    else:
+        sys.exit("Wrong command! Please rerun this program with the correct command.")
+
+
 if __name__ == "__main__":
 
     cmd = input(
@@ -37,13 +48,4 @@ if __name__ == "__main__":
         "Input 'end' to exist this program. \n\n"
         "PLease input your command: "
     )
-
-    if cmd == "help":
-        print_help()
-    elif cmd == "run":
-        main()
-    elif cmd == "end":
-        sys.exit("The checkout program has been ended.")
-    else:
-        sys.exit("Wrong command! Please rerun this program with the correct command.")
-
+    run_command(cmd)
