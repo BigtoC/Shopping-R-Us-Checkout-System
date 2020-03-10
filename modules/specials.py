@@ -29,7 +29,7 @@ def calculate() -> float:
             elif i == rule_num - 1 and matched == 0 and sku not in checked_list:  # Calculate those not match rules
                 price += data.products[sku]["price"] * num
 
-    return price
+    return round(price, 2)
 
 
 def analysis(sku: str, num: int, rule_str: str) -> float:
@@ -65,7 +65,7 @@ def analysis(sku: str, num: int, rule_str: str) -> float:
 
     elif ">" in rule_str:
         if sku == rule_list[1]:  # 'mbp' in '1 mbp > 1 vga'
-            if num >= int(rule_list[0]):  # no. of mbp = 1, >= 1
+            if num >= int(rule_list[0]):  # no. of mbp = 2, >= 2
                 special_product = rule_list[-1]  # special_product = vga
                 if special_product in data.args:  # 'vga' in 'mbp, vga, ipd'
                     special_num = int(num / int(rule_list[0]))
