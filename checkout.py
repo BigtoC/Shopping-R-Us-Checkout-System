@@ -2,8 +2,10 @@
 
 from modules import scan
 from modules import specials
+from modules import data
 
 import sys
+
 
 def print_help():
     """
@@ -19,9 +21,10 @@ def main():
     Perform the main function of this program
     :return: None
     """
-    args: str = input("SKUs Scanned: ")
-    sku_dict: dict = scan.scan(args)
-    price: float = specials.calculate(sku_dict)
+    data.read_file()  # Init the specials data in the YAML file
+    data.args = input("SKUs Scanned: ")
+    scan.scan()
+    price: float = specials.calculate()
 
     print(f"Total expected: ${price}")
 
