@@ -32,7 +32,14 @@ def calculate() -> float:
     return price
 
 
-def analysis(sku: str, num: int, rule_str: str) -> tuple:
+def analysis(sku: str, num: int, rule_str: str) -> float:
+    """
+    Analysis sku with specials rule in different scenarios, and calculate the price
+    :param sku: The current sku
+    :param num: Quantity of this sku
+    :param rule_str: Current rule for analysis
+    :return: The price of current sku
+    """
     price = 0.0
     rule_list = rule_str.split(" ")  # Convert str to list
     current_sku_price = data.products[sku]["price"]
